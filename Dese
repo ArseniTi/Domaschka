@@ -1,0 +1,94 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp14
+{
+    class Program
+    {
+        static void igra()
+        {
+            int b = 0;
+            int spich = 21;
+            Console.WriteLine(" 21 спичка" + "\nсначало ты, потом компухтер вытягиваете по спичке (от 1 до 4) из 21." + "\nКто вытянет последнюю спичку - проиграл.");
+
+            for (; spich > b;)
+            {
+                int g;
+                Random rn = new Random();
+                if (spich >= 4)
+                {
+
+                    g = rn.Next(1, 5);
+                }
+                else
+                {
+
+                    g = rn.Next(1, spich);
+
+                }
+
+
+                Console.WriteLine("Сколько спичек ты вытягиваешь(1-4)");
+                int bla = Convert.ToInt32(Console.ReadLine());
+
+                if (bla > 4)
+                {
+                    Console.WriteLine("Ты чего такой буйный?!?!");
+                }
+                else
+                {
+                    spich = spich - bla;
+                    Console.WriteLine("Осталось " + spich + " спички");
+
+                    if (spich <= 0)
+                    {
+                        Console.WriteLine("Game over");
+                        break;
+                    }
+
+
+                    if (spich == 1)
+                    {
+                        int c1 = 1;
+                        spich = spich - c1;
+                        Console.WriteLine("Компухтер вытянул " + c1 + " спички");
+                    }
+                    else if (spich == 2)
+                    {
+                        Random r2 = new Random();
+                        int c2 = r2.Next(1, 2);
+                        spich = spich - c2;
+                        Console.WriteLine("Компухтер вытянул " + c2 + " спички");
+                    }
+                    else if (spich == 3)
+                    {
+                        Random r3 = new Random();
+                        int c3 = r3.Next(1, 3);
+                        spich = spich - c3;
+                        Console.WriteLine("Компухтер вытянул " + c3 + " спички");
+                    }
+                    else 
+                    {
+                        spich = spich - g;
+                        Console.WriteLine("Компухтер вытянул " + g + " спички");
+                    }
+
+                    Console.WriteLine("Осталось " + spich + " спички");
+                    if(spich ==0)
+                    {
+                        Console.WriteLine("You win!");
+                        break;
+                    }
+                }
+            }
+            Console.ReadKey();
+        }
+        static void Main(string[] args)
+        {
+            igra();
+        }
+    }
+}
